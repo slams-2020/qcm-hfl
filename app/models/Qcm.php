@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('qcm')
 */
@@ -38,23 +41,23 @@ class Qcm{
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\Exam","name"=>"idExam","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\Exam","name"=>"idExam","nullable"=>false)
 	*/
 	private $exam;
 
 	/**
-	 * @oneToMany("mappedBy"=>"qcm","className"=>"models\\Useranswer")
+	 * @oneToMany("mappedBy"=>"qcm","className"=>"models\\qcm\\Useranswer")
 	*/
 	private $useranswers;
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\User","name"=>"idUser","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\User","name"=>"idUser","nullable"=>false)
 	*/
 	private $user;
 
 	/**
-	 * @manyToMany("targetEntity"=>"models\\Question","inversedBy"=>"qcms")
+	 * @manyToMany("targetEntity"=>"models\\qcm\\Question","inversedBy"=>"qcms")
 	 * @joinTable("name"=>"qcmquestion")
 	*/
 	private $questions;
