@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('useranswer')
 */
@@ -27,19 +30,19 @@ class Useranswer{
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\Answer","name"=>"idAnswer","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\Answer","name"=>"idAnswer","nullable"=>false)
 	*/
 	private $answer;
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\Qcm","name"=>"idQcm","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\Qcm","name"=>"idQcm","nullable"=>false)
 	*/
 	private $qcm;
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\User","name"=>"idUser","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\User","name"=>"idUser","nullable"=>false)
 	*/
 	private $user;
 
