@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('tag')
 */
@@ -25,7 +28,7 @@ class Tag{
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\User","name"=>"idUser","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\User","name"=>"idUser","nullable"=>false)
 	*/
 	private $user;
 
