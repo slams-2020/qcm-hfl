@@ -58,5 +58,6 @@ return array(
 			"maintenance",
 			"composer",
 			"git"
-			)
+			),
+	"activeDb"=>"qcm"
 	);
