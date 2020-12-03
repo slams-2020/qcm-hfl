@@ -3,13 +3,14 @@ return array(
 	"siteUrl"=>"http://127.0.0.1:8090/",
 	"database"=>array(
 			"type"=>"mysql",
-			"dbName"=>"newbase",
+			"dbName"=>"myqcm",
 			"serverName"=>"127.0.0.1",
 			"port"=>3306,
 			"user"=>"root",
 			"password"=>"",
 			"options"=>array(),
-			"cache"=>false
+			"cache"=>false,
+			"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper"
 			),
 	"sessionName"=>"s5fc89985e8d14",
 	"namespaces"=>array(),
@@ -21,11 +22,9 @@ return array(
 	"debug"=>true,
 	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog("MyQCM",\Monolog\Logger::INFO);},
 	"di"=>array(
-			"@exec"=>array(
-					"jquery"=>function ($controller){
+			"@exec"=>array("jquery"=>function ($controller){
 						return \Ubiquity\core\Framework::diSemantic($controller);
-					}
-					)
+					})
 			),
 	"cache"=>array(
 			"directory"=>"cache/",
