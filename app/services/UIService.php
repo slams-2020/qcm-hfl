@@ -4,8 +4,10 @@ namespace services;
 
 use Ajax\php\ubiquity\JsUtils;
 use Ajax\service\JArray;
+use Ubiquity\orm\DAO;
+use models\Question;
+use models\Typeq;
 use models\User;
-use models\qcm\Question;
 
 
 
