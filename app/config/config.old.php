@@ -2,17 +2,30 @@
 return array(
 	"siteUrl"=>"http://127.0.0.1:8090/",
 	"database"=>array(
-			"type"=>"mysql",
-			"dbName"=>"myqcm",
-			"serverName"=>"127.0.0.1",
-			"port"=>3306,
-			"user"=>"root",
-			"password"=>"",
-			"options"=>array(),
-			"cache"=>false,
-			"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper"
+			"default"=>array(
+					"type"=>"mysql",
+					"dbName"=>"myqcm",
+					"serverName"=>"127.0.0.1",
+					"port"=>3306,
+					"user"=>"root",
+					"password"=>"",
+					"options"=>array(),
+					"cache"=>false,
+					"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper"
+					),
+			"qcm"=>array(
+					"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper",
+					"type"=>"mysql",
+					"dbName"=>"qcm",
+					"serverName"=>"127.0.0.1",
+					"port"=>3306,
+					"options"=>array(),
+					"user"=>"root",
+					"password"=>"",
+					"cache"=>false
+					)
 			),
-	"sessionName"=>"s5fc89985e8d14",
+	"sessionName"=>"s5fc8b6f693765",
 	"namespaces"=>array(),
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>array(
@@ -20,11 +33,17 @@ return array(
 			),
 	"test"=>false,
 	"debug"=>true,
-	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog("MyQCM",\Monolog\Logger::INFO);},
+	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog(array (
+  'host' => '127.0.0.1',
+  'port' => 8090,
+  'sessionName' => 's5fc8b6f693765',
+)['sessionName'],\Monolog\Logger::INFO);},
 	"di"=>array(
-			"@exec"=>array("jquery"=>function ($controller){
+			"@exec"=>array(
+					"jquery"=>function ($controller){
 						return \Ubiquity\core\Framework::diSemantic($controller);
-					})
+					}
+					)
 			),
 	"cache"=>array(
 			"directory"=>"cache/",

@@ -4,7 +4,7 @@ return array(
 	"database"=>array(
 			"default"=>array(
 					"type"=>"mysql",
-					"dbName"=>"myqcm",
+					"dbName"=>"qcm",
 					"serverName"=>"127.0.0.1",
 					"port"=>3306,
 					"user"=>"root",
