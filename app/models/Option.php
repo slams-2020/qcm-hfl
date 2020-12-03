@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('option')
 */
@@ -23,7 +26,7 @@ class Option{
 	private $description;
 
 	/**
-	 * @oneToMany("mappedBy"=>"option","className"=>"models\\Examoption")
+	 * @oneToMany("mappedBy"=>"option","className"=>"models\\qcm\\Examoption")
 	*/
 	private $examoptions;
 
