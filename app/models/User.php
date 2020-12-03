@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('user')
 */
@@ -44,32 +47,32 @@ class User{
 	private $email;
 
 	/**
-	 * @oneToMany("mappedBy"=>"user","className"=>"models\\Group")
+	 * @oneToMany("mappedBy"=>"user","className"=>"models\\qcm\\Group")
 	*/
 	private $groups;
 
 	/**
-	 * @oneToMany("mappedBy"=>"user","className"=>"models\\Qcm")
+	 * @oneToMany("mappedBy"=>"user","className"=>"models\\qcm\\Qcm")
 	*/
 	private $qcms;
 
 	/**
-	 * @oneToMany("mappedBy"=>"user","className"=>"models\\Question")
+	 * @oneToMany("mappedBy"=>"user","className"=>"models\\qcm\\Question")
 	*/
 	private $questions;
 
 	/**
-	 * @oneToMany("mappedBy"=>"user","className"=>"models\\Tag")
+	 * @oneToMany("mappedBy"=>"user","className"=>"models\\qcm\\Tag")
 	*/
 	private $tags;
 
 	/**
-	 * @oneToMany("mappedBy"=>"user","className"=>"models\\Useranswer")
+	 * @oneToMany("mappedBy"=>"user","className"=>"models\\qcm\\Useranswer")
 	*/
 	private $useranswers;
 
 	/**
-	 * @manyToMany("targetEntity"=>"models\\Group","inversedBy"=>"users")
+	 * @manyToMany("targetEntity"=>"models\\qcm\\Group","inversedBy"=>"users")
 	 * @joinTable("name"=>"usergroup")
 	*/
 	private $groups1;
