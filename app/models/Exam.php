@@ -1,5 +1,8 @@
 <?php
-namespace models;
+namespace models\qcm;
+/**
+ * @database('qcm')
+*/
 /**
  * @table('exam')
 */
@@ -32,18 +35,18 @@ class Exam{
 	private $status;
 
 	/**
-	 * @oneToMany("mappedBy"=>"exam","className"=>"models\\Examoption")
+	 * @oneToMany("mappedBy"=>"exam","className"=>"models\\qcm\\Examoption")
 	*/
 	private $examoptions;
 
 	/**
-	 * @oneToMany("mappedBy"=>"exam","className"=>"models\\Qcm")
+	 * @oneToMany("mappedBy"=>"exam","className"=>"models\\qcm\\Qcm")
 	*/
 	private $qcms;
 
 	/**
 	 * @manyToOne
-	 * @joinColumn("className"=>"models\\Group","name"=>"idGroup","nullable"=>false)
+	 * @joinColumn("className"=>"models\\qcm\\Group","name"=>"idGroup","nullable"=>false)
 	*/
 	private $group;
 
