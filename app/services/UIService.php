@@ -9,6 +9,8 @@ use models\Question;
 use models\Typeq;
 use models\User;
 
+
+
 class UIService {
 	protected $jquery;
 	protected $semantic;
