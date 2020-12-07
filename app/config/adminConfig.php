@@ -59,5 +59,5 @@ return array(
 			"composer",
 			"git"
 			),
-	"activeDb"=>"default"
+	"activeDb"=>"qcmtest"
 	);

@@ -4,7 +4,7 @@ return array(
 	"database"=>array(
 			"default"=>array(
 					"type"=>"mysql",
-					"dbName"=>"qcm",
+					"dbName"=>"qcm-hfl",
 					"serverName"=>"127.0.0.1",
 					"port"=>3306,
 					"user"=>"root",
@@ -17,6 +17,17 @@ return array(
 					"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper",
 					"type"=>"mysql",
 					"dbName"=>"qcm",
+					"serverName"=>"127.0.0.1",
+					"port"=>3306,
+					"options"=>array(),
+					"user"=>"root",
+					"password"=>"",
+					"cache"=>false
+					),
+			"qcmtest"=>array(
+					"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper",
+					"type"=>"mysql",
+					"dbName"=>"qcm-hfl",
 					"serverName"=>"127.0.0.1",
 					"port"=>3306,
 					"options"=>array(),

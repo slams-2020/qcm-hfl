@@ -29,6 +29,23 @@ class UIService {
 		$q->setTypeq ( current ( $types ) );
 		$frm->fieldAsDropDown ( 'typeq', JArray::modelArray ( $types, 'getId' ) );
 		return $frm;
+	
+	
+	   $frm->fieldAsInput('caption', [
+	       'rules' => [
+	           'empty'
+	       ]
+	    
+	   ]
+	       );
+	   
+	   $frm->fieldAsInput('typeq', [
+	       'rules' => [
+	           'empty'
+	       ]
+	       
+	   ]
+	       );
 	}
 	public function userForm() {
 		$frm = $this->jquery->semantic ()->dataForm ( 'form', new User () );

@@ -4,7 +4,7 @@ return array(
 	"database"=>array(
 			"default"=>array(
 					"type"=>"mysql",
-					"dbName"=>"myqcm",
+					"dbName"=>"qcm-hfl",
 					"serverName"=>"127.0.0.1",
 					"port"=>3306,
 					"user"=>"root",
@@ -39,11 +39,9 @@ return array(
   'sessionName' => 's5fc8b6f693765',
 )['sessionName'],\Monolog\Logger::INFO);},
 	"di"=>array(
-			"@exec"=>array(
-					"jquery"=>function ($controller){
+			"@exec"=>array("jquery"=>function ($controller){
 						return \Ubiquity\core\Framework::diSemantic($controller);
-					}
-					)
+					})
 			),
 	"cache"=>array(
 			"directory"=>"cache/",
