@@ -6,12 +6,13 @@ use Ubiquity\orm\DAO;
 use Ubiquity\utils\http\URequest;
 use models\User;
 use services\UIService;
+
 /**
  * Controller FormsController
  *
  * @property \Ajax\php\ubiquity\JsUtils $jquery
  */
-class LoginController extends ControllerBase {
+class FormsController extends ControllerBase {
     private $uiService;
     public function initialize() {
         parent::initialize ();
@@ -19,13 +20,13 @@ class LoginController extends ControllerBase {
     }
     public function index() {
         $frm = $this->uiService->userForm ();
-        $frm->fieldAsSubmit ( 'submit', 'green', 'LoginController/submit', '#response', [
+        $frm->fieldAsSubmit ( 'submit', 'green', 'FormsController/submit', '#response', [
             'ajax' => [
                 'hasLoader' => 'internal'
             ]
         ] );
         
-        $this->jquery->renderView ( "LoginController/index.html" );
+        $this->jquery->renderView ( "FormsController/index.html" );
     }
     public function submit() {
         $user = new User ();
@@ -33,6 +34,3 @@ class LoginController extends ControllerBase {
         DAO::insert ( $user );
     }
 }
-
-
-
