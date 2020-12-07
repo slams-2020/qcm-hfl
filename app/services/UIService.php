@@ -35,10 +35,19 @@ class UIService {
 		$frm->setFields ( [ 
 				'Firstname',
 				'lastname',
-				'email',
+			    'login',	
+		        'email',
 		        'password',
 				'submit'
 		] );
+		
+		$frm->setCaptions( [
+		    'name',
+		    'Firstname',
+		    'pseudo',
+		    'email',
+		    'password'
+		]);
 		
 		$frm->fieldAsInput('Firstname', [
 		       'rules' => [
@@ -53,13 +62,19 @@ class UIService {
 				]
 		] );
 		
+		$frm->fieldAsInput ( 'login', [
+		    'rules' => [
+		        'empty'
+		    ]
+		] );
+		
 		$frm->fieldAsInput ( 'email', [ 
 				'inputType' => 'email',
 				'rules' => [ 
 						[ 
-								'email',
-						        'empty',
-								'Valeur {value} invalide !'
+						    'empty',
+							'email'
+						        
 						]
 				]
 		] );
