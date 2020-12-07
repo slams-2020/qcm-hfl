@@ -33,27 +33,46 @@ class UIService {
 	public function userForm() {
 		$frm = $this->jquery->semantic ()->dataForm ( 'form', new User () );
 		$frm->setFields ( [ 
-				'id',
+				'Firstname',
 				'lastname',
 				'email',
-				'firstname',
+		        'password',
 				'submit'
 		] );
+		
+		$frm->fieldAsInput('Firstname', [
+		       'rules' => [
+		           'empty'
+		       ]
+		       
+		]
+		    );
 		$frm->fieldAsInput ( 'lastname', [ 
 				'rules' => [ 
-						'empty',
-						'length[10]'
+						'empty'
 				]
 		] );
+		
 		$frm->fieldAsInput ( 'email', [ 
 				'inputType' => 'email',
 				'rules' => [ 
 						[ 
 								'email',
+						        'empty',
 								'Valeur {value} invalide !'
 						]
 				]
 		] );
+		
+		$frm->fieldAsInput ( 'password', [    
+		    'inputType' => 'password',
+		    'rules' => [
+
+		                  'empty',
+		                  'length[8]'
+		    ]
+		] );
+		
 		$frm->setValidationParams ( [ 
 				"on" => "blur",
 				"inline" => true
