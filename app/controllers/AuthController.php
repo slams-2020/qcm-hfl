@@ -46,3 +46,4 @@ class AuthController extends \Ubiquity\controllers\auth\AuthController{
 
 
 }
+
