@@ -43,3 +43,7 @@ Specify what it takes to deploy your app.
 * [Doc API](https://api.kobject.net/ubiquity/)
 * [Twig documentation](https://twig.symfony.com)
 * [Semantic-UI](https://semantic-ui.com)
+
+* [LogoHFL]()
+
+* [Prévisualitation du site]()
