@@ -1,59 +1,106 @@
 <html lang="fr">
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=0">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body {font-family: "Allerta Stencil", sans-serif}
 .mySlides {display: none}
 
+.ui.segment {
+	margin: 0rem 0;
+    margin-top: 0rem;
+    margin-right: 0px;
+    margin-bottom: 0rem;
+    margin-left: 0px;
+}
+
+.ui.button{
+
+    float: left;
+}
 
 
 </style>
-<body>
 
-<a href="http://127.0.0.1:8090/AccueilController/index">
+
+<body>
+<!-- Navbar -->
+<div class="ui inverted menu segment">
+  <div class="ui inverted secondary pointing menu">
+    <a class="item" href="http://127.0.0.1:8090/AccueilController/index">
 	<img alt="logo"
 		src="/public/assets/img/logo.png"
-		width="120"
-		height="75"
-		/>
+		
+	/>
+	</a>
+	
+    <a class="item ">Mes QCM </a>
+    
+    <a class="item" href="http://127.0.0.1:8090/FormsController/index">Mes Résultats </a>
+    
+    <a class="item">Mes Groupes </a>
+ 
+  	<a class="ui pointing dropdown link item">
+    <span class="text">Plus</span>
+    <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Commentaires</div>
+          <div class="item">Contact</div>
+        </div>
+	</div>
 </a>
 
 
-<!-- Navbar -->
-<div class="w3-top">
-	
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item button " href="http://127.0.0.1:8090/AccueilController/index">
-	<img alt="logo"
-		src="/public/assets/img/logo.png"
-		width="120"
-		height="120"
-		border="2"
-		/>
-	</a>
-	
-    <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small ">Mes QCM</a>
-    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Mes Résultats</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Mes groupes</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">Plus <i class="fa fa-caret-down"></i></button>     
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">Commentaires</a>
-        <a href="#" class="w3-bar-item w3-button">Contact</a>
-      </div>
-     
-    </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  <div class="itembutton">
+    <div class="ui primary button">S'inscrire</div>
   </div>
-</div>
+  <div class="itembutton">
+    <div class="ui button">Connexion</div>
+  </div>
+
+
+<!--  
+<div class="ui placeholder segment">
+  		<div class="ui two column very relaxed stackable grid">
+    	<div class="column">
+      	<div class="ui form">
+        	<div class="field">
+          	<label>Username</label>
+          	<div class="ui left icon input">
+            	<input type="text" placeholder="Username">
+            	<i class="user icon"></i>
+          	</div>
+        	</div>
+        	<div class="field">
+          	<label>Password</label>
+          	<div class="ui left icon input">
+            	<input type="password">
+            	<i class="lock icon"></i>
+         	 </div>
+        	</div>
+        	<div class="ui blue submit button">Login</div>
+      	</div>
+    	</div>
+    	<div class="middle aligned column">
+      	<div class="ui big button"><i class="signup icon"></i> S'inscrire </div>
+    	</div>
+  	</div>
+  	<div class="ui vertical divider">Ou </div>
+	</div> </div>
 
 
 
 
 </body>
 </html>
+
+
+    <!-- <button class="w3-padding-large w3-button" title="More">Plus <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Commentaires</a>
+        <a href="#" class="w3-bar-item w3-button">Contact</a> -->
+        
+ {{ script_foot | raw}}
