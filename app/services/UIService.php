@@ -5,6 +5,7 @@ namespace services;
 use Ajax\php\ubiquity\JsUtils;
 use models\Question;
 use models\User;
+use models\Qcm;
 
 class UIService {
 	protected $jquery;
@@ -13,8 +14,7 @@ class UIService {
 		$this->jquery = $jq;
 		$this->semantic = $jq->semantic ();
 	}
-	public function qcmForm() {
-		$q = new Question ();
+	public function questionForm() {
 		$frm = $this->jquery->semantic ()->dataForm ( 'form', new Question () );
 		$frm->setFields ( [ 
 				'caption',
@@ -60,7 +60,8 @@ class UIService {
 				'Firstname',
 				'pseudo',
 				'email',
-				'password'
+				'password',
+		         'bouton'
 		] );
 
 		$frm->fieldAsInput ( 'Firstname', [ 
@@ -104,5 +105,44 @@ class UIService {
 				"inline" => true
 		] );
 		return $frm;
+	}
+	
+	public Function qcmForm(){
+	    $frm = $this->jquery->semantic ()->dataForm ( 'form', new Qcm() );
+	    $frm->setFields([
+	           'name',
+	           'description',
+	           'cdate'
+	    ]);
+	    
+	    $frm->setCaptions([
+	        'Name QCM',
+	        'Desciption QCM',
+	        'Date'
+	    ]);
+	    
+	    $frm->fieldAsInput('name',[
+	        'rules' => [
+	                   'empty'
+	                   ]
+	    ]);
+	    
+	    $frm->fieldAsInput ('descrption',[
+	        'rules' =>[
+	            'empty'
+	        ]
+	    ]);
+	    
+	    $frm->fieldAsInput('cdate',[
+	        'inputType' => 'date',
+	        'rules'=>[
+	                'empty'
+	                ]
+	    ]);
+	    $frm->setValidationParams ( [
+	        "on" => "blur",
+	        "inline" => true
+	    ] );
+	    return $frm;
 	}
 }
