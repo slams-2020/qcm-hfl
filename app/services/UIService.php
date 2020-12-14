@@ -3,9 +3,9 @@
 namespace services;
 
 use Ajax\php\ubiquity\JsUtils;
+use models\Qcm;
 use models\Question;
 use models\User;
-use models\Qcm;
 
 class UIService {
 	protected $jquery;
@@ -19,11 +19,14 @@ class UIService {
 		$frm->setFields ( [ 
 				'caption',
 				'typeq',
+				'points',
+				'idType',
 				'submit'
 		] );
 
 		$frm->setCaptions ( [ 
 				'question',
+				'Nombre de points',
 				'type de question'
 		] );
 
@@ -37,6 +40,17 @@ class UIService {
 				'rules' => [ 
 						'empty'
 				]
+		] );
+
+		$frm->fieldAsInput ( 'points', [ 
+				'rules' => [ 
+						'empty'
+				]
+		] );
+
+		$frm->fieldAsDataList ( 'idType', [ 
+				'multiple',
+				'ouverte'
 		] );
 		$frm->setValidationParams ( [ 
 				"on" => "blur",
@@ -61,7 +75,7 @@ class UIService {
 				'pseudo',
 				'email',
 				'password',
-		         'bouton'
+				'bouton'
 		] );
 
 		$frm->fieldAsInput ( 'Firstname', [ 
@@ -106,43 +120,42 @@ class UIService {
 		] );
 		return $frm;
 	}
-	
-	public Function qcmForm(){
-	    $frm = $this->jquery->semantic ()->dataForm ( 'form', new Qcm() );
-	    $frm->setFields([
-	           'name',
-	           'description',
-	           'cdate'
-	    ]);
-	    
-	    $frm->setCaptions([
-	        'Name QCM',
-	        'Desciption QCM',
-	        'Date'
-	    ]);
-	    
-	    $frm->fieldAsInput('name',[
-	        'rules' => [
-	                   'empty'
-	                   ]
-	    ]);
-	    
-	    $frm->fieldAsInput ('descrption',[
-	        'rules' =>[
-	            'empty'
-	        ]
-	    ]);
-	    
-	    $frm->fieldAsInput('cdate',[
-	        'inputType' => 'date',
-	        'rules'=>[
-	                'empty'
-	                ]
-	    ]);
-	    $frm->setValidationParams ( [
-	        "on" => "blur",
-	        "inline" => true
-	    ] );
-	    return $frm;
+	public function qcmForm() {
+		$frm = $this->jquery->semantic ()->dataForm ( 'form', new Qcm () );
+		$frm->setFields ( [ 
+				'name',
+				'description',
+				'cdate'
+		] );
+
+		$frm->setCaptions ( [ 
+				'Name QCM',
+				'Desciption QCM',
+				'Date'
+		] );
+
+		$frm->fieldAsInput ( 'name', [ 
+				'rules' => [ 
+						'empty'
+				]
+		] );
+
+		$frm->fieldAsInput ( 'descrption', [ 
+				'rules' => [ 
+						'empty'
+				]
+		] );
+
+		$frm->fieldAsInput ( 'cdate', [ 
+				'inputType' => 'date',
+				'rules' => [ 
+						'empty'
+				]
+		] );
+		$frm->setValidationParams ( [ 
+				"on" => "blur",
+				"inline" => true
+		] );
+		return $frm;
 	}
 }
