@@ -20,8 +20,26 @@ body {font-family: "Allerta Stencil", sans-serif}
 .itembutton{
 
    		position:relative;
-		left : 62%;
+		left : 60%;
+		margin-left: 5px;
+		
+		}
+
+.ui.menu .item>img:not(.ui){
+
+	width: 6em;
+
 }
+
+.ui.input {
+
+margin-left: 940px;
+color: white; 
+margin-top: 6em;
+
+}
+
+
 
 
 
@@ -50,18 +68,41 @@ body {font-family: "Allerta Stencil", sans-serif}
     <i class="dropdown icon"></i>
         <div class="menu">
           <div class="item">Commentaires</div>
-          <div class="item">Contact</div>
+          <div class="item">Contact</div>          
         </div>
+        </a>
 	</div>
-</a>
-
-
-  <div class="itembutton">
+	
+	
+	  <div class="itembutton">
     <div class="ui primary button">S'inscrire</div>
   </div>
   <div class="itembutton">
-    <div class="ui button">Connexion</div>
+  
+    <div class="ui button">Connexion 
+    </div>
+    
+
+
+</div>
+		
+      <div class="ui transparent inverted icon input">
+        <input type="text" placeholder="Recherche de mot(s) clef(s)">
+        <i class="search link icon"></i>
+        
+      </div>
+
+    
+    
   </div>
+  
+
+</div>
+
+ {{ script_foot | raw}}
+
+
+</body>
 
 
 <!--  
