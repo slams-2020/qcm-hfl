@@ -118,7 +118,8 @@ class UIService {
 		$frm->setFields ( [ 
 				'name',
 				'description',
-				'cdate'
+				'cdate',
+		         'submit'
 		] );
 
 		$frm->setCaptions ( [ 
