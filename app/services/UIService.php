@@ -18,7 +18,6 @@ class UIService {
 		$frm = $this->jquery->semantic ()->dataForm ( 'form', new Question () );
 		$frm->setFields ( [ 
 				'caption',
-				'typeq',
 				'points',
 				'idType',
 				'submit'
@@ -31,12 +30,6 @@ class UIService {
 		] );
 
 		$frm->fieldAsInput ( 'caption', [ 
-				'rules' => [ 
-						'empty'
-				]
-		] );
-
-		$frm->fieldAsInput ( 'typeq', [ 
 				'rules' => [ 
 						'empty'
 				]
