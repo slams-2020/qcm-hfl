@@ -33,7 +33,9 @@ class QcmController extends ControllerBase {
 		$question = new Question ();
 		URequest::setValuesToObject ( $question );
 		DAO::insert ( $question );
-		
+		$qcm = new Qcm();
+		URequest::setValuesToObject ( $qcm );
+		DAO::insert ( $qcm );
 	}
 
 
@@ -46,10 +48,6 @@ class QcmController extends ControllerBase {
 	    ] );
 	    $this->jquery->renderView ( "QcmController/qcm.html" );
 	}
-	public function submmit(){
-	$qcm = new Qcm();
-	    URequest::setValuesToObject ( $qcm );
-	    DAO::insert ( $qcm );
-	}
+	
 }
 
