@@ -13,5 +13,122 @@
 {% endblock %}
 </head>
 <body>
+<html lang="fr">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+<style>
+body {font-family: "Allerta Stencil", sans-serif}
+.mySlides {display: none}
+
+.ui.segment {
+	margin: 0rem 0;
+    margin-top: 0rem;
+    margin-right: 0px;
+    margin-bottom: 0rem;
+    margin-left: 0px;
+}
+
+.itembutton{
+
+   		position:relative;
+		left : 60%;
+		margin-left: 5px;
+		
+		}
+
+.ui.menu .item>img:not(.ui){
+
+	width: 6em;
+
+}
+
+.ui.input {
+
+margin-left: 940px;
+color: white; 
+margin-top: 6em;
+
+}
+
+
+
+</style>
+
+
+<body>
+<!-- Navbar -->
+<div class="ui inverted menu segment">
+  <div class="ui inverted secondary pointing menu">
+    <a class="item " href="http://127.0.0.1:8090/AccueilController/index">
+	<img alt="logo"
+		src="/public/assets/img/logo.png"
+		
+	/>
+	</a>
+	
+    <a class="item ">Mes QCM </a>
+    
+    <a class="item" href="http://127.0.0.1:8090/FormsController/index">Mes Résultats </a>
+    
+    <a class="item">Mes Groupes </a>
+ 
+  	<a class="ui pointing dropdown link item">
+    <span class="text">Plus</span>
+    <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Commentaires</div>
+          <div class="item">Contact</div>          
+        </div>
+        </a>
+	</div>
+	
+	  <div class="itembutton">
+    <a class="ui primary button" href="http://127.0.0.1:8090/FormsController/index"> S'inscrire</a>
+  </div>
+
+  	  <div class="itembutton">
+    	<a class="ui button floating labeled icon dropdown button">
+    <span class="test">Connexion</span>
+    <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="ui left icon input">
+
+  <div class="inline field">
+    <input type="text" name="pseudo" placeholder="Pseudo">
+    <!--  <div class="ui left pointing red basic label"> </div>-->
+  </div>
+
+    <div class="inline field">
+    <input name="password" type="password" id="pass" 
+           minlength="8" required placeholder="Mot de passe">
+    <!--  <div class="ui left pointing red basic label"> </div>-->
+  </div>
+</div>
+          <div class="item"><div class="ui negative button">Valider</div> </div>         
+</div>
+</a>
+</div>
+
+
+	<!-- 
+  <div class="itembutton">
+     <div class="ui button">Connexion 
+		
+		</div>
+		</div>
+		
+		
+		   -->
+      <div class="ui transparent inverted icon input">
+        <input type="text" placeholder="Recherche de mot(s) clef(s)">
+        <i class="search link icon"></i>
+        
+      </div> 
+  </div>
 {% block head %}
 {% endblock %}
+ {{ script_foot | raw}}

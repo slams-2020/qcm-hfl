@@ -1,103 +1,75 @@
-<html lang="fr">
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
-
-<style>
-body {font-family: "Allerta Stencil", sans-serif}
-.mySlides {display: none}
-
-.ui.segment {
-	margin: 0rem 0;
-    margin-top: 0rem;
-    margin-right: 0px;
-    margin-bottom: 0rem;
-    margin-left: 0px;
-}
-
-.itembutton{
-
-   		position:relative;
-		left : 60%;
-		margin-left: 5px;
-		
-		}
-
-.ui.menu .item>img:not(.ui){
-
-	width: 6em;
-
-}
-
-.ui.input {
-
-margin-left: 940px;
-color: white; 
-margin-top: 6em;
-
-}
 
 
 
-
-
-</style>
-
-
-<body>
-<!-- Navbar -->
-<div class="ui inverted menu segment">
-  <div class="ui inverted secondary pointing menu">
-    <a class="item" href="http://127.0.0.1:8090/AccueilController/index">
-	<img alt="logo"
-		src="/public/assets/img/logo.png"
-		
-	/>
-	</a>
-	
-    <a class="item ">Mes QCM </a>
+<!-- Page -->
     
-    <a class="item" href="http://127.0.0.1:8090/FormsController/index">Mes Résultats </a>
-    
-    <a class="item">Mes Groupes </a>
- 
-  	<a class="ui pointing dropdown link item">
-    <span class="text">Plus</span>
-    <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="item">Commentaires</div>
-          <div class="item">Contact</div>          
-        </div>
-        </a>
-	</div>
-	
-	
-	  <div class="itembutton">
-    <a class="ui primary button" href="http://127.0.0.1:8090/FormsController/index"> S'inscrire</a>
-  </div>
-  <div class="itembutton">
-  
-    <div class="ui button">Connexion 
+    <div class="ui main text container">
+      <h1 class="ui header">Bienvenue sur MyQcm</h1>
+      <p></p>
+      <p>
+        A text container is used for the main container, which is useful for
+        single column layouts
+      </p>
+      <img
+        class="ui image"
+        src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/media-paragraph.png"
+      />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
+      <img class="ui image" src="/rootstatic/templates/semantic-ui/fixed/static/images/wireframe/paragraph.png" />
     </div>
-    
-
-
-</div>
-		
-      <div class="ui transparent inverted icon input">
-        <input type="text" placeholder="Recherche de mot(s) clef(s)">
-        <i class="search link icon"></i>
-        
+    <div class="ui inverted vertical footer segment">
+      <div class="ui center aligned container">
+        <div class="ui stackable inverted divided grid">
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 1</h4>
+            <div class="ui inverted link list">
+              <a class="item" href="#root">Link One</a>
+              <a class="item" href="#root">Link Two</a>
+              <a class="item" href="#root">Link Three</a>
+              <a class="item" href="#root">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 2</h4>
+            <div class="ui inverted link list">
+              <a class="item" href="#root">Link One</a>
+              <a class="item" href="#root">Link Two</a>
+              <a class="item" href="#root">Link Three</a>
+              <a class="item" href="#root">Link Four</a>
+            </div>
+          </div>
+          <div class="three wide column">
+            <h4 class="ui inverted header">Group 3</h4>
+            <div class="ui inverted link list">
+              <a class="item" href="#root">Link One</a>
+              <a class="item" href="#root">Link Two</a>
+              <a class="item" href="#root">Link Three</a>
+              <a class="item" href="#root">Link Four</a>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <h4 class="ui inverted header">Footer Header</h4>
+            <p>
+              Extra space for a call to action inside the footer that could help
+              re-engage users.
+            </p>
+          </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <img class="ui centered mini image" src="/rootstatic/templates/semantic-ui/fixed/static/images/logo.png" />
+        <div class="ui horizontal inverted small divided link list">
+          <a class="item" href="#root">Site Map</a>
+          <a class="item" href="#root">Contact Us</a>
+          <a class="item" href="#root">Terms and Conditions</a>
+          <a class="item" href="#root">Privacy Policy</a>
+        </div>
       </div>
+    </div>
 
-    
-    
-  </div>
-  
-
-</div>
 
  {{ script_foot | raw}}
 
