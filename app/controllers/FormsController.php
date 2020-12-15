@@ -20,7 +20,7 @@ class FormsController extends ControllerBase {
     }
     public function index() {
         $frm = $this->uiService->userForm ();
-        $frm->fieldAsSubmit ( 'submit', 'green', 'FormsController/submit', 'createuser ', [
+        $frm->fieldAsSubmit ( 'submit', 'green', 'FormsController/submit', '.ui.container', [
             'ajax' => [
                 'hasLoader' => 'internal'
             ]
