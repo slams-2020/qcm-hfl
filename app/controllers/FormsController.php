@@ -20,7 +20,7 @@ class FormsController extends ControllerBase {
     }
     public function index() {
         $frm = $this->uiService->userForm ();
-        $frm->fieldAsSubmit ( 'submit', 'green', 'FormsController/submit', '#response', [
+        $frm->fieldAsSubmit ( 'submit', 'green', 'FormsController/submit', 'createuser ', [
             'ajax' => [
                 'hasLoader' => 'internal'
             ]
@@ -31,8 +31,11 @@ class FormsController extends ControllerBase {
     public function submit() {
         $user = new User ();
         URequest::setValuesToObject ( $user );
-        DAO::insert ( $user );
-        $this->jquery->renderView ( "FormsController/index.html" );
-        
+        if( DAO::insert ( $user )){
+            $this->forward(AccueilController::class);
+        }else{
+            echo 'error';
+        }
+                
     }
 }
