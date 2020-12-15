@@ -54,6 +54,7 @@ class QcmController extends ControllerBase {
 				]
 		] );
 		$this->jquery->renderView ( "QcmController/qcm.html" );
+		
 	}
 }
 

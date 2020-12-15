@@ -32,5 +32,7 @@ class FormsController extends ControllerBase {
         $user = new User ();
         URequest::setValuesToObject ( $user );
         DAO::insert ( $user );
+        $this->jquery->renderView ( "FormsController/index.html" );
+        
     }
 }
