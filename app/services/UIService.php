@@ -6,7 +6,6 @@ use Ajax\php\ubiquity\JsUtils;
 use models\Qcm;
 use models\Question;
 use models\User;
-use models\Group;
 
 class UIService {
 	protected $jquery;
@@ -21,7 +20,8 @@ class UIService {
 				'caption',
 				'points',
 				'idType',
-				'submit'
+				'submit',
+				'import'
 		] );
 
 		$frm->setCaptions ( [ 
@@ -46,6 +46,8 @@ class UIService {
 				'multiple',
 				'ouverte'
 		] );
+
+		$frm->fieldAsList ( 'import' );
 		$frm->setValidationParams ( [ 
 				"on" => "blur",
 				"inline" => true
@@ -120,7 +122,7 @@ class UIService {
 				'name',
 				'description',
 				'cdate',
-		         'submit'
+				'submit'
 		] );
 
 		$frm->setCaptions ( [ 
@@ -153,37 +155,4 @@ class UIService {
 		] );
 		return $frm;
 	}
-	
-	
-			
-	public function GroupForm() {
-	    $frm = $this->jquery->semantic ()->dataForm ( 'form', new Group() );
-	    $frm->setFields ( [
-	        'name',
-	        'description',
-	        'submit'
-	    ] );
-	    
-	    $frm->setCaptions ( [
-	        'Group Name',
-	        'Group Desciption',
-	        'Bouton'
-	    ] );
-	    
-	    $frm->fieldAsInput ( 'name', [
-	        'rules' => ['empty' ]
-	    ] );
-	    
-	    $frm->fieldAsInput ( 'descrption', [
-	        'rules' => ['empty']
-	    ] );
-	    
-	    $frm->setValidationParams ( [
-	        "on" => "blur",
-	        "inline" => true
-	    ] );
-	    return $frm;
-	    
-	}
-	    
 }

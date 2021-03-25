@@ -46,7 +46,7 @@ body {font-family: "Allerta Stencil", sans-serif}
 
 }
 
-.ui.input.inverted{
+.ui.input.inverted {
 
 margin-left: 940px;
 color: white; 
@@ -54,7 +54,11 @@ margin-top: 6em;
 
 }
 
-
+.createuser{
+margin-left: 300px;
+margin-top: 2em;
+margin-right:300px;
+}
 
 </style>
 
@@ -70,9 +74,9 @@ margin-top: 6em;
 	/>
 	</a>
 	
-    <a class="item" href="http://127.0.0.1:8090/QcmController/qcm">Mes QCM </a>
+    <a class="item " href="http://127.0.0.1:8090/QcmController/">Mes QCM </a>
     
-    <a class="item" >Mes Résultats </a>
+    <a class="item" href="http://127.0.0.1:8090/FormsController/index">Mes Résultats </a>
     
     <a class="item">Mes Groupes </a>
  
@@ -84,14 +88,18 @@ margin-top: 6em;
           <div class="item">Contact</div>          
         </div>
         </a>
-</div>
-
+	</div>
 	
 	  <div class="itembutton">
     <a class="ui primary button" href="http://127.0.0.1:8090/FormsController/index"> S'inscrire</a>
   </div>
 
-    <form method="post" name="loginForm" id="loginForm">
+  	  <div class="itembutton">
+    	<a class="ui button floating labeled icon dropdown button">
+    <span class="test">Connexion</span>
+    <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="ui left icon input">
 
   <div class="inline field">
     <input type="text" name="pseudo" placeholder="Pseudo">
@@ -99,13 +107,26 @@ margin-top: 6em;
   </div>
 
     <div class="inline field">
-    <input name="password" type="password" id="pass"
-     minlength="8" required placeholder="Mot de passe">
+    <input name="password" type="password" id="pass" 
+           minlength="8" required placeholder="Mot de passe">
     <!--  <div class="ui left pointing red basic label"> </div>-->
-  </div><input type="submit" id="loginButton" class="ui negative button" value="Valider"/>       
-          </form>
+  </div>
+</div>
+          <div class="item"><div class="ui negative button">Valider</div> </div>         
+</div>
+</a>
+</div>
 
 
+	<!-- 
+  <div class="itembutton">
+     <div class="ui button">Connexion 
+		
+		</div>
+		</div>
+		
+		
+		   -->
       <div class="ui transparent inverted icon input">
         <input type="text" placeholder="Recherche de mot(s) clef(s)">
         <i class="search link icon"></i>

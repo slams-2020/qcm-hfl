@@ -2,8 +2,6 @@
 namespace controllers;
 use Ubiquity\utils\http\USession;
 use Ubiquity\utils\http\URequest;
-use controllers\auth\files\AuthControllerFiles;
-use Ubiquity\controllers\auth\AuthFiles;
 
  /**
   * Auth Controller AuthController
@@ -25,10 +23,7 @@ class AuthController extends \Ubiquity\controllers\auth\AuthController{
 		if(URequest::isPost()){
 			$email=URequest::post($this->_getLoginInputName());
 			$password=URequest::post($this->_getPasswordInputName());
-			
-			
 			//TODO
-			
 			//Loading from the database the user corresponding to the parameters
 			//Checking user creditentials
 			//Returning the user
@@ -48,10 +43,7 @@ class AuthController extends \Ubiquity\controllers\auth\AuthController{
 		return 'AuthController';
 	}
 	
-	protected function getFiles(): AuthFiles{
-		return new AuthControllerFiles();
-	}
-
 
 
 }
+

@@ -1,0 +1,14 @@
+<!--View associated to index action of QuestionController controller -->
+<div class="ui container">
+{{ q['form'] | raw }}
+<div id="response"></div>
+<div id="import"></div>
+</div>
+{% block body %}
+    <ul>
+        {% for question in questions %}
+            <li>{{question}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+{{ script_foot | raw }}
