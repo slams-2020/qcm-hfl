@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 01 déc. 2020 à 14:17
+-- Généré le : jeu. 03 déc. 2020 à 10:42
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.9
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `qcm`
 --
+CREATE DATABASE IF NOT EXISTS `qcm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `qcm`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `answer`
 --
 
+DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
   `id` int(11) NOT NULL,
   `caption` varchar(42) DEFAULT NULL,
@@ -34,12 +37,21 @@ CREATE TABLE `answer` (
   `idQuestion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `answer`
+--
+
+INSERT INTO `answer` (`id`, `caption`, `score`, `idQuestion`) VALUES
+(1, '50', 0, 1),
+(2, '300', 100, 1);
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `exam`
 --
 
+DROP TABLE IF EXISTS `exam`;
 CREATE TABLE `exam` (
   `id` int(11) NOT NULL,
   `dated` datetime DEFAULT NULL,
@@ -54,6 +66,7 @@ CREATE TABLE `exam` (
 -- Structure de la table `examoption`
 --
 
+DROP TABLE IF EXISTS `examoption`;
 CREATE TABLE `examoption` (
   `idExam` int(11) NOT NULL,
   `idOption` int(11) NOT NULL,
@@ -66,6 +79,7 @@ CREATE TABLE `examoption` (
 -- Structure de la table `group`
 --
 
+DROP TABLE IF EXISTS `group`;
 CREATE TABLE `group` (
   `id` int(11) NOT NULL,
   `name` varchar(42) DEFAULT NULL,
@@ -73,12 +87,20 @@ CREATE TABLE `group` (
   `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `group`
+--
+
+INSERT INTO `group` (`id`, `name`, `description`, `idUser`) VALUES
+(1, '2 SIO SLAM', 'Les SLAMS', 1);
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `option`
 --
 
+DROP TABLE IF EXISTS `option`;
 CREATE TABLE `option` (
   `id` int(11) NOT NULL,
   `key` varchar(42) DEFAULT NULL,
@@ -91,6 +113,7 @@ CREATE TABLE `option` (
 -- Structure de la table `qcm`
 --
 
+DROP TABLE IF EXISTS `qcm`;
 CREATE TABLE `qcm` (
   `id` int(11) NOT NULL,
   `name` varchar(42) DEFAULT NULL,
@@ -101,16 +124,31 @@ CREATE TABLE `qcm` (
   `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `qcm`
+--
+
+INSERT INTO `qcm` (`id`, `name`, `description`, `cdate`, `status`, `idExam`, `idUser`) VALUES
+(1, 'QCM 1', 'QCM difficile', '2021-02-17 04:03:00', '', NULL, 1);
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `qcmquestion`
 --
 
+DROP TABLE IF EXISTS `qcmquestion`;
 CREATE TABLE `qcmquestion` (
   `idQuestion` int(11) NOT NULL,
   `idQcm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `qcmquestion`
+--
+
+INSERT INTO `qcmquestion` (`idQuestion`, `idQcm`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -118,13 +156,21 @@ CREATE TABLE `qcmquestion` (
 -- Structure de la table `question`
 --
 
+DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
   `id` int(11) NOT NULL,
   `caption` varchar(42) DEFAULT NULL,
   `points` int(11) DEFAULT NULL,
-  `tags` text DEFAULT NULL,
-  `idUser` int(11) DEFAULT NULL
+  `idUser` int(11) DEFAULT NULL,
+  `idType` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `question`
+--
+
+INSERT INTO `question` (`id`, `caption`, `points`, `idUser`, `idType`) VALUES
+(1, 'Quelle est la hauteur de la tour Eiffel', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -132,6 +178,7 @@ CREATE TABLE `question` (
 -- Structure de la table `tag`
 --
 
+DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `id` int(11) NOT NULL,
   `name` varchar(42) DEFAULT NULL,
@@ -139,12 +186,40 @@ CREATE TABLE `tag` (
   `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `tag`
+--
+
+INSERT INTO `tag` (`id`, `name`, `color`, `idUser`) VALUES
+(1, 'sql', 'red', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `typeq`
+--
+
+DROP TABLE IF EXISTS `typeq`;
+CREATE TABLE `typeq` (
+  `id` int(11) NOT NULL,
+  `caption` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `typeq`
+--
+
+INSERT INTO `typeq` (`id`, `caption`) VALUES
+(1, 'choix multiple'),
+(2, 'ouverte');
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `login` varchar(42) DEFAULT NULL,
@@ -154,17 +229,32 @@ CREATE TABLE `user` (
   `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`, `firstname`, `lastname`, `email`) VALUES
+(1, 'jcheron', '0000', 'jc', 'h', 'jc@gmail.com');
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `useranswer`
 --
 
+DROP TABLE IF EXISTS `useranswer`;
 CREATE TABLE `useranswer` (
   `idUser` int(11) NOT NULL,
   `idAnswer` int(11) NOT NULL,
   `idQcm` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `useranswer`
+--
+
+INSERT INTO `useranswer` (`idUser`, `idAnswer`, `idQcm`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -172,6 +262,7 @@ CREATE TABLE `useranswer` (
 -- Structure de la table `usergroup`
 --
 
+DROP TABLE IF EXISTS `usergroup`;
 CREATE TABLE `usergroup` (
   `idGroup` int(11) NOT NULL,
   `idUser` int(11) NOT NULL
@@ -235,7 +326,8 @@ ALTER TABLE `qcmquestion`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idUser` (`idUser`);
+  ADD KEY `idUser` (`idUser`),
+  ADD KEY `idType_Index` (`idType`);
 
 --
 -- Index pour la table `tag`
@@ -243,6 +335,12 @@ ALTER TABLE `question`
 ALTER TABLE `tag`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
+
+--
+-- Index pour la table `typeq`
+--
+ALTER TABLE `typeq`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `user`
@@ -273,7 +371,7 @@ ALTER TABLE `usergroup`
 -- AUTO_INCREMENT pour la table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `exam`
@@ -285,7 +383,7 @@ ALTER TABLE `exam`
 -- AUTO_INCREMENT pour la table `group`
 --
 ALTER TABLE `group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `option`
@@ -297,25 +395,31 @@ ALTER TABLE `option`
 -- AUTO_INCREMENT pour la table `qcm`
 --
 ALTER TABLE `qcm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT pour la table `typeq`
+--
+ALTER TABLE `typeq`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
@@ -364,7 +468,8 @@ ALTER TABLE `qcmquestion`
 -- Contraintes pour la table `question`
 --
 ALTER TABLE `question`
-  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`idType`) REFERENCES `typeq` (`id`);
 
 --
 -- Contraintes pour la table `tag`
